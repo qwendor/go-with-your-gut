@@ -75,6 +75,16 @@ a{color:var(--fizz)}
 .film{border-radius:22px;overflow:hidden;box-shadow:14px 14px 0 var(--cherry);background:#000;max-width:100%}
 .film video{display:block;width:100%;height:auto;aspect-ratio:16/9}
 
+.adshow{position:relative;aspect-ratio:16/9;background:#000}
+.adshow .slide{position:absolute;inset:0;opacity:0;overflow:hidden;animation:show 24s infinite}
+.adshow img{width:100%;height:100%;object-fit:cover;animation:kb 24s infinite;animation-delay:inherit}
+.adshow .cap{position:absolute;left:4%;bottom:12%;display:flex;flex-direction:column;gap:6px}
+.adshow .cap b{font-family:var(--f-display);font-weight:400;font-size:clamp(22px,4.4vw,54px);line-height:1;color:var(--cream);text-shadow:3px 3px 0 var(--cherry),0 4px 24px rgba(0,0,0,.5)}
+.adshow .cap span{font-family:var(--f-script);font-size:clamp(16px,2.6vw,32px);color:var(--cream);text-shadow:0 3px 14px rgba(0,0,0,.6)}
+.adtag{position:absolute;right:3%;bottom:5%;background:var(--cherry);color:var(--cream);font-weight:800;font-size:clamp(9px,1.2vw,14px);letter-spacing:.1em;padding:6px 12px;border-radius:999px}
+@keyframes show{0%{opacity:0}2%{opacity:1}16.7%{opacity:1}18.7%{opacity:0}100%{opacity:0}}
+@keyframes kb{0%{transform:scale(1)}18.7%{transform:scale(1.09)}100%{transform:scale(1.09)}}
+@media (prefers-reduced-motion:reduce){.adshow .slide{animation:none}.adshow .slide:first-child{opacity:1}.adshow img{animation:none}}
 /* nutrition-facts brief */
 .facts-wrap{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center}
 .facts{width:100%;max-width:820px;background:var(--cream);color:var(--ink);padding:22px 26px 26px;border:3px solid var(--ink);box-shadow:14px 14px 0 var(--cobalt)}
@@ -93,7 +103,7 @@ a{color:var(--fizz)}
 .foot-note{font-size:13px;line-height:1.45;padding-top:10px}
 
 /* deliverables */
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .card{background:var(--cream);color:var(--navy);border-radius:22px;padding:26px 24px 28px;box-shadow:12px 12px 0 var(--cherry);display:flex;flex-direction:column;gap:10px;min-width:0}
 .card .kind{font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt)}
 .card h4{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1.08;margin:0}
@@ -107,7 +117,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px 40px;
 @media (max-width:900px){
   .hero-grid{grid-template-columns:minmax(0,1fr);padding-block:36px 20px}
   .stage{height:430px}
-  .cards{grid-template-columns:minmax(0,1fr)}
+  .cards,.cards.two{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:560px){
   .can.front{--w:160px;--h:291px}
@@ -139,7 +149,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px 40px;
         <svg viewBox="0 0 760 70" aria-hidden="true"><path class="sq-path" d="M10 35 C 60 0, 110 70, 160 35 S 260 0, 310 35 S 410 70, 460 35 S 560 0, 610 35 S 710 70, 750 35" fill="none" stroke="#8FD8FF" stroke-width="14" stroke-linecap="round"/></svg>
         <span class="tag" aria-hidden="true">PEPSI PLUS · PROTEIN + FIBER</span>
       </h1>
-      <p class="lede">A new Pepsi with <b>10g protein and 5g fiber</b>, made for adults 65+ who want a healthier drink without giving up the one they love.</p>
+      <p class="lede">A healthier Pepsi with <b>protein and prebiotic fiber</b>, made for adults 65+ who want to be healthier but still crave a treat.</p>
     </div>
     <div class="stage" id="stage">
       <div class="can back" data-label="cherry" data-phase="140"><div class="tilt"><div class="cyl"></div></div><div class="can-label">Cherry</div></div>
@@ -159,8 +169,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px 40px;
 
 <section class="sec" id="spot">
   <div class="wrap">
-    <div class="sec-head"><h2>The spot: <em>Gut Calls</em></h2><p>0:20 · TV + Facebook</p></div>
-    <div class="film"><video id="spotVideo" src="gut-calls-spot.mp4" poster="poster.jpg" controls muted loop playsinline preload="metadata"></video></div>
+    <div class="sec-head"><h2>The Facebook ad: <em>Go With Your Gut</em></h2><p>Video · Facebook</p></div>
+    <div class="film adshow"><div class="slide" style="animation-delay:0s"><img src="https://openai-toolbox-mcp.coopermeidinger1.workers.dev/files/muvx0bja-ih0a6isy/gut_garden.jpeg" alt="Older adults enjoying a can of Pepsi Plus: Tend the garden."><div class="cap"><b>Tend the garden.</b><span>Go with your gut.</span></div></div><div class="slide" style="animation-delay:4s"><img src="https://openai-toolbox-mcp.coopermeidinger1.workers.dev/files/muvx0y6k-rzqgrafr/gut_pickleball.jpeg" alt="Older adults enjoying a can of Pepsi Plus: Win the rally."><div class="cap"><b>Win the rally.</b><span>Go with your gut.</span></div></div><div class="slide" style="animation-delay:8s"><img src="https://openai-toolbox-mcp.coopermeidinger1.workers.dev/files/muvx1lh6-y88seztl/gut_porch.jpeg" alt="Older adults enjoying a can of Pepsi Plus: Swing with the grandkids."><div class="cap"><b>Swing with the grandkids.</b><span>Go with your gut.</span></div></div><div class="slide" style="animation-delay:12s"><img src="https://openai-toolbox-mcp.coopermeidinger1.workers.dev/files/muvx292n-7dv7wedp/gut_walk.jpeg" alt="Older adults enjoying a can of Pepsi Plus: Take the long way home."><div class="cap"><b>Take the long way home.</b><span>Go with your gut.</span></div></div><div class="slide" style="animation-delay:16s"><img src="https://openai-toolbox-mcp.coopermeidinger1.workers.dev/files/muvx2vgw-h4zs681e/gut_trivia.jpeg" alt="Older adults enjoying a can of Pepsi Plus: Call the answer."><div class="cap"><b>Call the answer.</b><span>Go with your gut.</span></div></div><div class="slide end" style="animation-delay:20s"><img src="poster.jpg" alt="Go With Your Gut, Pepsi Plus"></div><div class="adtag">PEPSI PLUS · PROTEIN + PREBIOTIC FIBER</div></div>
   </div>
 </section>
 
@@ -171,14 +181,14 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px 40px;
       <div class="serv"><span>Serving size <b>1 page</b></span><span>Audience <b>Adults 65+</b></span></div>
       <div class="amt"><span>AMOUNT PER BRIEF</span><span>PEPSI PLUS</span></div>
       <dl style="margin:0">
-        <div class="row"><dt>Background</dt><dd>Better-for-you sodas are booming, but they're all marketed to 25-year-olds on TikTok. The people actually being told to get more protein and fiber are adults 65+. They're also the people who grew up as the original Pepsi Generation.</dd></div>
-        <div class="row"><dt>Problem</dt><dd>Older adults want to drink healthier, but "healthy" usually means chalky protein shakes and fiber powders. So they give up the drinks they actually enjoy.</dd></div>
-        <div class="row"><dt>Objective</dt><dd>Launch Pepsi Plus as the first soda adults 65+ can feel good about. Win back lapsed soda drinkers and grow Pepsi's share of 65+ households.</dd></div>
-        <div class="row"><dt>Audience</dt><dd><span class="persona">The Seasoned Sippers</span><br>Adults 65+ who are active, health-aware and done with drinks that taste like medicine. They've spent a lifetime learning to trust their instincts.</dd></div>
-        <div class="row"><dt>Message</dt><dd>You don't have to choose between what you love and what's good for you.</dd></div>
-        <div class="row insight"><dt>Insight</dt><dd>Nobody wants to toast with a fiber supplement.</dd></div>
-        <div class="row"><dt>Strategy</dt><dd>Sell Pepsi Plus as a real Pepsi first and a healthy drink second. Lead with taste and fun, then reveal the protein and fiber. The headline works two ways: <strong>trust your instincts</strong>, and <strong>take care of your gut</strong>.</dd></div>
-        <div class="row hl thick"><dt>Headline</dt><dd>Go With Your Gut</dd></div>
+        <div class="row"><dt>Background</dt><dd>Pepsi is struggling to connect with older audiences and needs a marketing strategy to reach those consumers.</dd></div>
+        <div class="row"><dt>Problem</dt><dd>Older generations are increasingly health conscious, meaning they want something with less caffeine and sugar.</dd></div>
+        <div class="row"><dt>Objective</dt><dd>Bring greater awareness to Pepsi's health products, such as prebiotic sodas.</dd></div>
+        <div class="row"><dt>Audience</dt><dd><span class="persona">Health-conscious adults 65+</span><br>Older adults who want to be healthier but are struggling with cravings.</dd></div>
+        <div class="row"><dt>Message</dt><dd>A treat can still be healthy.</dd></div>
+        <div class="row insight"><dt>Insight</dt><dd>You can crave something that's good for you.</dd></div>
+        <div class="row"><dt>Strategy</dt><dd>Position this product as a healthy alternative to regular Pepsi, taking away the guilt older consumers feel about drinking soda that is high in sugar and lacks nutritional value.</dd></div>
+        <div class="row hl thick"><dt>Headline</dt><dd>Go With Your Gut!</dd></div>
       </dl>
       <div class="foot-note">* Pepsi Plus is a concept product. Nutrition values are proposed targets for a 12 fl oz can.</div>
     </div>
@@ -187,28 +197,21 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px 40px;
 
 <section class="sec" id="deliverables">
   <div class="wrap">
-    <div class="sec-head"><h2>Deliverables</h2><p>Three ways in</p></div>
-    <div class="cards">
+    <div class="sec-head"><h2>Deliverables</h2><p>Two ways in</p></div>
+    <div class="cards two">
       <article class="card">
-        <span class="kind">TV + Facebook spot</span>
-        <div class="shout">SOLD!</div>
-        <h4>"Gut Calls"</h4>
-        <p>Seniors make bold gut calls with a Pepsi Plus in hand: an auction bid, a pickleball line call, an all-in trivia wager. It ends on "Go With Your Gut."</p>
-        <div class="where">Airs during Jeopardy!, Wheel of Fortune and Sunday football</div>
+        <span class="kind">Physical ads</span>
+        <div class="shout">REP IT.</div>
+        <h4>Posters, stickers + gym equipment</h4>
+        <p>Posters, stickers and the Pepsi name on gym equipment in recreation centers like the YMCA, where health-conscious older adults spend their time. Health-conscious younger adults see them too.</p>
+        <div class="where">YMCAs, rec centers, community gyms</div>
       </article>
       <article class="card">
-        <span class="kind">Live event</span>
-        <div class="shout">TASTE IT.</div>
-        <h4>The Gut Check Challenge</h4>
-        <p>The Pepsi Challenge comes back as a blind taste test of regular Pepsi vs. Pepsi Plus. If your gut can't tell the difference, you win a free 12-pack.</p>
-        <div class="where">Pickleball courts, senior centers, farmers markets</div>
-      </article>
-      <article class="card">
-        <span class="kind">Community</span>
-        <div class="shout">3 SEC.</div>
-        <h4>Gut Call Game Nights</h4>
-        <p>Pepsi Plus sponsors bingo and trivia nights. Each night has a "Gut Call" bonus round where players get 3 seconds to answer, so there's no time to overthink.</p>
-        <div class="where">55+ communities and retirement centers</div>
+        <span class="kind">Facebook ad</span>
+        <div class="shout">SIP IT.</div>
+        <h4>Post + video</h4>
+        <p>A Facebook post or video that shows off the healthy Pepsi: older adults going about their day and enjoying it, so they connect Pepsi with feeling good. See the spot above.</p>
+        <div class="where">Facebook feed and video</div>
       </article>
     </div>
   </div>
@@ -280,9 +283,9 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:26px 40px;
       b.style.width=b.style.height=d+'px';b.style.left=(rnd()*100)+'%';
       b.style.animationDuration=(9+rnd()*12)+'s';b.style.animationDelay=(-rnd()*20)+'s';host.appendChild(b);}
   }
-  // autoplay muted video when visible
-  const v=document.getElementById('spotVideo');
-  if(!reduce&&'IntersectionObserver' in window){
+  // (video removed)
+  const v=null;
+  if(false){
     new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){v.play().catch(()=>{})}else{v.pause()}}),{threshold:.4}).observe(v);
   }
 })();
